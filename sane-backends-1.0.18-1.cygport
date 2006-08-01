@@ -1,0 +1,13 @@
+DESCRIPTION=
+HOMEPAGE="http://www.sane-project.org/"
+SRC_URI="ftp://ftp.sane-project.org/pub/sane/${P}/${P}.tar.gz"
+
+CYGCONF_ARGS="--with-docdir=/usr/share/doc/${P}"
+
+DOCS="PROBLEMS PROJECTS README.windows"
+
+PKG_NAMES="${PN} libsane1 libsane-devel"
+PKG_HINTS='setup runtime devel'
+PKG_CONTENTS[0]='usr/bin/*.exe usr/sbin/ usr/share/'
+PKG_CONTENTS[1]='usr/bin/*.dll usr/lib/sane/*.dll'
+PKG_CONTENTS[2]='usr/bin/sane-config usr/include/ usr/lib/lib* usr/lib/sane/*.la'
