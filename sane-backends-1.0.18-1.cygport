@@ -1,4 +1,4 @@
-DESCRIPTION=
+DESCRIPTION="Scanner Access Now Easy library"
 HOMEPAGE="http://www.sane-project.org/"
 SRC_URI="ftp://ftp.sane-project.org/pub/sane/${P}/${P}.tar.gz"
 
