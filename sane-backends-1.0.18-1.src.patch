@@ -1,4 +1,3 @@
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/sane-backends-1.0.18/acinclude.m4 src/sane-backends-1.0.18/acinclude.m4
 --- origsrc/sane-backends-1.0.18/acinclude.m4	2006-05-26 14:38:37.000000000 -0500
 +++ src/sane-backends-1.0.18/acinclude.m4	2006-07-26 17:52:40.621125000 -0500
 @@ -15,7 +15,6 @@
@@ -6183,7 +6182,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depco
 -SED=$lt_cv_path_SED
 -AC_MSG_RESULT([$SED])
 -])
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/sane-backends-1.0.18/backend/Makefile.in src/sane-backends-1.0.18/backend/Makefile.in
 --- origsrc/sane-backends-1.0.18/backend/Makefile.in	2006-06-11 06:10:59.000000000 -0500
 +++ src/sane-backends-1.0.18/backend/Makefile.in	2006-07-27 20:22:30.650375000 -0500
 @@ -212,19 +212,6 @@
@@ -6206,7 +6204,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depco
  
  install-be-beos:
  	$(MKDIR) $(DESTDIR)$(libdir) $(DESTDIR)$(libsanedir) $(DESTDIR)$(configdir) $(DESTDIR)$(BEOS_ADDONDIR)
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/sane-backends-1.0.18/backend/pixma.h src/sane-backends-1.0.18/backend/pixma.h
 --- origsrc/sane-backends-1.0.18/backend/pixma.h	2006-06-11 15:56:42.000000000 -0500
 +++ src/sane-backends-1.0.18/backend/pixma.h	2006-07-27 18:32:03.839625000 -0500
 @@ -119,6 +119,9 @@
@@ -6219,7 +6216,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depco
  
  /** \addtogroup API
   *  @{ */
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/sane-backends-1.0.18/backend/pixma_common.c src/sane-backends-1.0.18/backend/pixma_common.c
 --- origsrc/sane-backends-1.0.18/backend/pixma_common.c	2006-06-11 15:53:05.000000000 -0500
 +++ src/sane-backends-1.0.18/backend/pixma_common.c	2006-07-27 18:32:38.995875000 -0500
 @@ -653,7 +653,7 @@
@@ -6231,7 +6227,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depco
  pixma_wait_event (pixma_t * s, int timeout /*ms */ )
  {
    unsigned events;
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/sane-backends-1.0.18/tools/Makefile.in src/sane-backends-1.0.18/tools/Makefile.in
 --- origsrc/sane-backends-1.0.18/tools/Makefile.in	2006-04-18 13:35:22.000000000 -0500
 +++ src/sane-backends-1.0.18/tools/Makefile.in	2006-07-27 19:34:04.435500000 -0500
 @@ -101,8 +101,8 @@
