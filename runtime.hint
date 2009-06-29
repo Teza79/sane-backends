@@ -1,5 +1,5 @@
 category: Graphics Libs
-requires: cygwin libieee1284_3 libusb-win32 libgphoto2 libjpeg62 libtiff5
+requires: libieee1284_3 libusb-win32 libgphoto2 libjpeg62 libtiff5
 external-source: sane-backends
 sdesc: "Scanner Access Now Easy (runtime library)"
 ldesc: "SANE stands for Scanner Access Now Easy.

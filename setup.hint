@@ -1,5 +1,5 @@
 category: Graphics
-requires: cygwin libsane1 libieee1284_3 libusb-win32
+requires: libsane1 libieee1284_3 libusb-win32
 sdesc: "Scanner Access Now Easy (utilities and data)"
 ldesc: "SANE stands for Scanner Access Now Easy.
 This package contains the SANE libraries (this means backends and
