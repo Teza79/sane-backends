@@ -1,7 +1,0 @@
-category: Graphics Libs
-requires: libieee1284_3 libusb-win32 libgphoto2 libjpeg62 libtiff5
-external-source: sane-backends
-sdesc: "Scanner Access Now Easy (runtime library)"
-ldesc: "SANE stands for Scanner Access Now Easy.
-This package contains the SANE libraries (this means backends and
-network scanning parts) and the command line frontend scanimage."

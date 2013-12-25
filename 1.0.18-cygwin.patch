@@ -1,0 +1,76 @@
+--- origsrc/sane-backends-1.0.18/backend/Makefile.in	2006-06-11 06:10:59.000000000 -0500
++++ src/sane-backends-1.0.18/backend/Makefile.in	2006-07-27 20:22:30.650375000 -0500
+@@ -212,19 +212,6 @@
+ 	@# Remove libsane.* links in lib/sane/ as these links to libsane-v4l.so
+ 	@# cause misdetection of scanners.
+ 	rm -f $(DESTDIR)$(libsanedir)/libsane.*
+-	@# Create library links manually. Actually this is libtool's job but it doesn't
+-	@# seem to work on some platforms. 
+-	@# Assume the dll name without any versions is last
+-	@if test "$(USE_LINKS)" = "yes" ; then  \
+-	  dllend=`../tools/libtool-get-dll-ext libsane-dll.la`; \
+-	  list="$(ALL_BACKENDS)"; cd $(DESTDIR)$(libsanedir) && for be in $$list; do \
+-	    file=libsane-$${be}.$$dllend.$(V_MAJOR); \
+-	    lib=`grep dlname= libsane-$${be}.la | cut -f2 -d"'"`; \
+-	    if test ! -f $${file} -a -n "$${lib}"; then \
+-	      $(LN_S) $${lib} $${file}; \
+-	    fi; \
+-	  done; \
+-	fi
+ 
+ install-be-beos:
+ 	$(MKDIR) $(DESTDIR)$(libdir) $(DESTDIR)$(libsanedir) $(DESTDIR)$(configdir) $(DESTDIR)$(BEOS_ADDONDIR)
+--- origsrc/sane-backends-1.0.18/backend/pixma.h	2006-06-11 15:56:42.000000000 -0500
++++ src/sane-backends-1.0.18/backend/pixma.h	2006-07-27 18:32:03.839625000 -0500
+@@ -119,6 +119,9 @@
+ #ifndef ENODATA
+ # define ENODATA       10001
+ #endif
++#ifndef ECANCELED
++# define ECANCELED     10002
++#endif
+ 
+ /** \addtogroup API
+  *  @{ */
+--- origsrc/sane-backends-1.0.18/backend/pixma_common.c	2006-06-11 15:53:05.000000000 -0500
++++ src/sane-backends-1.0.18/backend/pixma_common.c	2006-07-27 18:32:38.995875000 -0500
+@@ -653,7 +653,7 @@
+   return pixma_set_interrupt_mode (s->io, enabled);
+ }
+ 
+-unsigned
++uint32_t
+ pixma_wait_event (pixma_t * s, int timeout /*ms */ )
+ {
+   unsigned events;
+--- origsrc/sane-backends-1.0.18/tools/Makefile.in	2006-04-18 13:35:22.000000000 -0500
++++ src/sane-backends-1.0.18/tools/Makefile.in	2006-07-27 19:34:04.435500000 -0500
+@@ -101,8 +101,8 @@
+ gamma4scanimage: gamma4scanimage.o
+ 	@$(LIBTOOL) $(MLINK) $(LINK) gamma4scanimage.o -lm
+ 
+-../backend/umax_pp_low.o: ../backend/umax_pp_low.c 
+-	$(COMPILE) ../backend/umax_pp_low.c -o ../backend/umax_pp_low.o \
++../backend/umax_pp_low.o: $(top_srcdir)/backend/umax_pp_low.c 
++	$(COMPILE) $(top_srcdir)/backend/umax_pp_low.c -o ../backend/umax_pp_low.o \
+ 	  -DBACKEND_NAME=umax_pp_low
+ 
+ umax_pp: umax_pp.o ../backend/umax_pp_low.o
+@@ -112,14 +112,17 @@
+ 	@$(LIBTOOL) $(MLINK) $(LINK) sane-desc.o $(LIBSANEI) $(LIBLIB)
+ 
+ hotplug/libsane.usermap: $(wildcard ${top_srcdir}/doc/descriptions/*.desc) $(wildcard ${top_srcdir}/doc/descriptions-external/*.desc) sane-desc
++	mkdir -p hotplug
+ 	@./sane-desc -m usermap -s ${top_srcdir}/doc/descriptions:${top_srcdir}/doc/descriptions-external \
+ 	   -d 1 > $@
+ 
+ hotplug-ng/libsane.db: $(wildcard ${top_srcdir}/doc/descriptions/*.desc) $(wildcard ${top_srcdir}/doc/descriptions-external/*.desc) sane-desc
++	mkdir -p hotplug-ng
+ 	@./sane-desc -m db -s ${top_srcdir}/doc/descriptions:${top_srcdir}/doc/descriptions-external \
+ 	   -d 0 > $@
+ 
+ udev/libsane.rules: $(wildcard ${top_srcdir}/doc/descriptions/*.desc) $(wildcard ${top_srcdir}/doc/descriptions-external/*.desc) sane-desc
++	mkdir -p udev
+ 	@./sane-desc -m udev -s ${top_srcdir}/doc/descriptions:${top_srcdir}/doc/descriptions-external \
+ 	   -d 0 > $@
+ 
