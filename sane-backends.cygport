@@ -1,5 +1,5 @@
 NAME="sane-backends"
-VERSION=1.0.18
+VERSION=1.0.27
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Scanner access library"
@@ -7,16 +7,29 @@ DESCRIPTION="SANE stands for Scanner Access Now Easy and is an API that provides
 standardized access to any raster image scanner hardware (flatbed scanner,
 hand-held scanner, video- and still-cameras, frame-grabbers, etc.)."
 HOMEPAGE="http://www.sane-project.org/"
-SRC_URI="ftp://ftp.sane-project.org/pub/sane/${NAME}/${NAME}-${VERSION}.tar.gz"
-PATCH_URI="1.0.18-cygwin.patch"
+SRC_URI="https://alioth.debian.org/frs/download.php/file/4224/${NAME}-${VERSION}.tar.gz"
+#PATCH_URI="1.0.18-cygwin.patch"
 
 PKG_NAMES="${NAME} libsane1 libsane-devel"
-sane_backends_CONTENTS='usr/bin/*.exe usr/sbin/ usr/share/'
-libsane1_CONTENTS="usr/bin/cygsane-1.dll usr/lib/sane/"
-libsane_devel_CONTENTS='usr/bin/sane-config usr/include/ usr/lib/lib*'
+sane_backends_CONTENTS="
+	--exclude=sane-config*
+	etc/
+	usr/bin/*
+	usr/sbin/
+	usr/share/
+"
+libsane1_CONTENTS="
+	usr/bin/cygsane-1.dll
+	usr/lib/sane/
+"
+libsane_devel_CONTENTS="
+	usr/bin/sane-config
+	usr/include/sane/
+	usr/lib/libsane.dll.a
+	usr/lib/pkgconfig/sane-backends.pc
+	usr/share/man/man1/sane-config.1*
+"
 
 CYGCONF_ARGS="--with-docdir=/usr/share/doc/${NAME}"
 
 DOCS="PROBLEMS PROJECTS README.windows"
-
-KEEP_LA_FILES="none"
